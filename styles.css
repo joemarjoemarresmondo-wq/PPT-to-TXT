@@ -1,0 +1,641 @@
+:root {
+  color-scheme: light;
+  --ink: #1d2925;
+  --muted: #78817d;
+  --green: #2f7457;
+  --green-dark: #255f47;
+  --green-light: #edf5f0;
+  --line: #e7ece8;
+  --paper: #ffffff;
+  --background: #f7f9f7;
+  --danger: #b44242;
+  font-family: "DM Sans", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(232, 241, 234, 0.6), transparent 38rem),
+    var(--background);
+  color: var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.topbar {
+  height: 74px;
+  padding: 0 max(6.5vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(226, 233, 228, 0.8);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: Manrope, sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.8px;
+}
+
+.brand-mark,
+.brand-mark svg {
+  width: 30px;
+  height: 30px;
+}
+
+.brand-mark svg,
+.upload-icon svg,
+.file-icon svg {
+  stroke: var(--green);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brand-mark svg {
+  stroke-width: 1.8;
+}
+
+.brand-light {
+  color: var(--green);
+}
+
+.privacy-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #64716b;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.privacy-note svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--green);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+main {
+  width: min(100% - 40px, 930px);
+  margin: 0 auto;
+}
+
+.intro {
+  padding: 66px 0 31px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
+.eyebrow span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #68a57f;
+  box-shadow: 0 0 0 4px rgba(104, 165, 127, 0.12);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin: 18px 0 13px;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(42px, 6vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -3.2px;
+  font-weight: 700;
+}
+
+h1 span {
+  color: var(--green);
+}
+
+.intro-copy {
+  max-width: 420px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.workspace {
+  width: min(100%, 630px);
+  margin: 0 auto;
+}
+
+.converter-card {
+  padding: 22px;
+  border: 1px solid #e8ede9;
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: 0 15px 44px rgba(38, 65, 50, 0.07), 0 2px 6px rgba(38, 65, 50, 0.025);
+}
+
+.dropzone {
+  min-height: 242px;
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px dashed #cbd9ce;
+  border-radius: 12px;
+  background: #fbfcfb;
+  text-align: center;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.dropzone:hover,
+.dropzone:focus-visible,
+.dropzone.is-dragging {
+  outline: none;
+  border-color: #70a489;
+  background: #f4f9f5;
+}
+
+.dropzone.is-dragging {
+  transform: scale(0.995);
+}
+
+.upload-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  border-radius: 15px;
+  background: var(--green-light);
+}
+
+.upload-icon svg {
+  width: 35px;
+  height: 35px;
+  stroke-width: 1.55;
+}
+
+.dropzone h2 {
+  margin: 0 0 6px;
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.35px;
+}
+
+.dropzone p {
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.browse-link {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.file-type {
+  color: #909994;
+  font-size: 10px;
+}
+
+.file-type span {
+  padding: 0 3px;
+}
+
+.file-row {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fbfcfb;
+}
+
+.file-icon,
+.file-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.file-icon {
+  flex: 0 0 auto;
+}
+
+.file-icon svg {
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.file-info {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-info strong {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-info span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.remove-file,
+.copy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.remove-file {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  color: #828b86;
+}
+
+.remove-file:hover {
+  background: #f0f3f0;
+  color: var(--ink);
+}
+
+.remove-file svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 13px;
+  color: #64716b;
+  font-size: 11px;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #dfe9e1;
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+.status.is-success .spinner {
+  display: none;
+}
+
+.status.is-success {
+  color: var(--green);
+  font-weight: 600;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+}
+
+.convert-button,
+.download-button {
+  min-height: 44px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+  cursor: pointer;
+}
+
+.convert-button {
+  min-width: 190px;
+  background: var(--green);
+  color: #fff;
+}
+
+.convert-button:not(:disabled):hover,
+.download-button:hover {
+  transform: translateY(-1px);
+}
+
+.convert-button:not(:disabled):hover {
+  background: var(--green-dark);
+}
+
+.convert-button:disabled {
+  background: #a9c1b2;
+  cursor: not-allowed;
+}
+
+.convert-button svg,
+.download-button svg,
+.copy-button svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.download-button {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+
+.download-button:hover {
+  background: #dfede3;
+}
+
+.preview {
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.preview-heading {
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: #fbfcfb;
+}
+
+.preview-heading h2 {
+  margin: 0 0 2px;
+  font-family: Manrope, sans-serif;
+  font-size: 12px;
+}
+
+.preview-heading span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.copy-button {
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.copy-button:hover {
+  background: var(--green-light);
+}
+
+.copy-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.preview pre {
+  max-height: 250px;
+  margin: 0;
+  padding: 15px;
+  overflow: auto;
+  color: #4a5650;
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.error-message {
+  margin: 13px 0 0;
+  color: var(--danger);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.footnote {
+  max-width: 490px;
+  margin: 13px auto 0;
+  color: #858e89;
+  font-size: 10px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.footnote strong {
+  color: #68746d;
+  font-weight: 700;
+}
+
+.how-it-works {
+  width: min(100%, 730px);
+  margin: 43px auto 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.step-number {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid #dce8df;
+  border-radius: 7px;
+  background: #f0f6f1;
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.step h2 {
+  margin: 1px 0 3px;
+  font-family: Manrope, sans-serif;
+  font-size: 11px;
+  letter-spacing: -0.2px;
+}
+
+.step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.step-line {
+  width: 30px;
+  height: 1px;
+  margin: 0 8px;
+  background: #dce5de;
+}
+
+footer {
+  padding: 17px 20px 21px;
+  border-top: 1px solid rgba(226, 233, 228, 0.8);
+  color: #929b96;
+  font-size: 10px;
+  text-align: center;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    height: 62px;
+    padding: 0 20px;
+  }
+
+  .privacy-note {
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .privacy-note svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  main {
+    width: min(100% - 30px, 500px);
+  }
+
+  .intro {
+    padding: 49px 0 27px;
+  }
+
+  h1 {
+    letter-spacing: -2.2px;
+  }
+
+  .intro-copy {
+    max-width: 340px;
+    font-size: 13px;
+  }
+
+  .converter-card {
+    padding: 14px;
+  }
+
+  .dropzone {
+    min-height: 225px;
+  }
+
+  .how-it-works {
+    margin: 34px auto 40px;
+    align-items: flex-start;
+  }
+
+  .step {
+    gap: 7px;
+  }
+
+  .step-line {
+    width: 10px;
+    flex: 0 0 10px;
+    margin: 11px 3px 0;
+  }
+
+  .step-number {
+    width: 21px;
+    height: 21px;
+    font-size: 8px;
+  }
+
+  .step h2 {
+    font-size: 10px;
+  }
+
+  .step p {
+    max-width: 82px;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 390px) {
+  .privacy-note {
+    max-width: 105px;
+    font-size: 9px;
+  }
+
+  .how-it-works {
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .step-line {
+    display: none;
+  }
+
+  .step {
+    flex: 1;
+  }
+}
